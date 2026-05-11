@@ -7,24 +7,26 @@ struct OverlayPresenterView: View {
     let onDismissHUD: @MainActor () -> Void
 
     var body: some View {
-        ZStack {
-            if let hud = filteredHUD {
-                HUDOverlayContainerView(
-                    message: hud,
-                    onDismiss: onDismissHUD
-                )
-                .transition(.opacity.combined(with: .scale(scale: 0.96)))
-                .zIndex(1)
+        OverlayGlassEffectContainer(spacing: 16) {
+            ZStack {
+                if let hud = filteredHUD {
+                    HUDOverlayContainerView(
+                        message: hud,
+                        onDismiss: onDismissHUD
+                    )
+                    .transition(.opacity.combined(with: .scale(scale: 0.96)))
+                    .zIndex(1)
+                }
             }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .overlay(alignment: .top) {
-            if let banner = filteredBanner {
-                BannerOverlayView(
-                    message: banner,
-                    onDismiss: onDismissBanner
-                )
-                .transition(.move(edge: .top).combined(with: .opacity))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .overlay(alignment: .top) {
+                if let banner = filteredBanner {
+                    BannerOverlayView(
+                        message: banner,
+                        onDismiss: onDismissBanner
+                    )
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                }
             }
         }
         .animation(.spring(response: 0.35, dampingFraction: 0.86), value: model.banner?.id)
@@ -72,7 +74,7 @@ private struct BannerOverlayView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 10)
-        .bannerSurface()
+        .bannerSurface(isInteractive: message.tapToDismiss)
         .frame(maxWidth: Layout.maxBannerWidth)
         .frame(maxWidth: .infinity)
         .onTapGesture {
@@ -84,6 +86,26 @@ private struct BannerOverlayView: View {
         }
         .padding(.horizontal, 16)
         .safeAreaPadding(.top, 8)
+    }
+}
+
+private struct OverlayGlassEffectContainer<Content: View>: View {
+    let spacing: CGFloat
+    let content: () -> Content
+
+    init(spacing: CGFloat, @ViewBuilder content: @escaping () -> Content) {
+        self.spacing = spacing
+        self.content = content
+    }
+
+    var body: some View {
+        if #available(iOS 26.0, *) {
+            GlassEffectContainer(spacing: spacing) {
+                content()
+            }
+        } else {
+            content()
+        }
     }
 }
 
