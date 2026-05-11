@@ -66,6 +66,11 @@ target.build_configurations.each do |config|
   config.build_settings["SUPPORTS_MACCATALYST"] = "NO"
 end
 
+app_intents_framework_path = "System/Library/Frameworks/AppIntents.framework"
+app_intents_framework = project.frameworks_group.find_file_by_path(app_intents_framework_path) ||
+                        project.frameworks_group.new_file(app_intents_framework_path, :sdk_root)
+target.frameworks_build_phase.add_file_reference(app_intents_framework, true)
+
 app_group = project.main_group.new_group(source_dir, source_dir)
 group_cache = {}
 
@@ -102,10 +107,20 @@ localization_group = group_for_relative_dir(app_group, "Resources/Localization",
 end
 
 [
+  "PrivacyInfo.xcprivacy"
+].each do |relative|
+  next unless File.exist?(File.join(app_root, relative))
+
+  reference = app_group.new_reference(relative)
+  target.resources_build_phase.add_file_reference(reference)
+end
+
+[
   "Info.plist"
 ].each do |relative|
   app_group.new_reference(relative)
 end
 
+project.predictabilize_uuids
 project.save
 puts "Generated #{project_path}"

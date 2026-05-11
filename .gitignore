@@ -1,14 +1,40 @@
 # Xcode user state
 *.xcuserstate
-*.xcuserdata/
+*.xcuserdatad/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
 xcuserdata/
 
-# Build output
+# Build and test output
 DerivedData/
 build/
+*.xcresult
+*.resultbundle
+*.xcarchive
+*.dSYM/
+*.dSYM.zip
+*.ipa
 
 # Swift Package Manager
 .build/
+.swiftpm/
 
-# macOS
+# Ruby local dependencies
+.bundle/
+vendor/bundle/
+
+# Signing material and local secrets
+*.mobileprovision
+*.provisionprofile
+*.p12
+*.cer
+*.pem
+.env
+.env.*
+!.env.example
+
+# macOS and editors
 .DS_Store
+._*
+.vscode/
+.idea/

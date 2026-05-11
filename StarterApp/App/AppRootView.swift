@@ -6,19 +6,21 @@ struct AppRootView: View {
     var body: some View {
         ZStack {
             TabView {
-                Tab("common.tab.home", systemImage: "house") {
-                    NavigationStack {
-                        HomeView(store: appEnvironment.homeStore)
-                    }
+                NavigationStack {
+                    HomeView(store: appEnvironment.homeStore)
+                }
+                .tabItem {
+                    Label("common.tab.home", systemImage: "house")
                 }
 
-                Tab("common.tab.settings", systemImage: "gearshape") {
-                    NavigationStack {
-                        SettingsView(
-                            store: appEnvironment.settingsStore,
-                            subscriptionStore: appEnvironment.subscriptionStore
-                        )
-                    }
+                NavigationStack {
+                    SettingsView(
+                        store: appEnvironment.settingsStore,
+                        subscriptionStore: appEnvironment.subscriptionStore
+                    )
+                }
+                .tabItem {
+                    Label("common.tab.settings", systemImage: "gearshape")
                 }
             }
 

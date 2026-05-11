@@ -17,7 +17,7 @@ DEFAULT_CONFIG = {
   "bundle_id" => "co.example.starterapp",
   "marketing_version" => "1.0",
   "current_project_version" => "1",
-  "deployment_target" => "18.0",
+  "deployment_target" => "17.0",
   "network_base_url" => "https://api.example.com",
   "app_store_id" => "0000000000",
   "share_url" => "https://example.com/app",
@@ -291,7 +291,7 @@ localizable_paths.each do |path|
   end
 end
 
-source_text_files = Dir.glob(File.join(new_source_path, "**", "*.{swift,plist,strings}"))
+source_text_files = Dir.glob(File.join(new_source_path, "**", "*.{swift,plist,strings,xcprivacy}"))
 rewrite_text_files(
   source_text_files,
   {
