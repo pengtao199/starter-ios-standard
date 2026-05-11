@@ -1,63 +1,53 @@
 # Starter iOS Standard
 
-`starter-ios-standard` 是一个可运行的通用 iOS 项目基座工作区。
+`starter-ios-standard` 是一套可运行、可复制、可重置的通用 iOS Standard 基座。
 
-它的定位不是 FYPIX 的业务子模块，而是一个在 FYPIX 仓库中孵化的 `Standard 档 Starter`，用于后续快速复制出新的 iOS 项目。
+它的目标是让新 iOS 项目先拥有稳定的 App Shell、系统页、配置层、订阅入口、网络基线和合规基线，再开始承载具体业务。
 
-## 当前已内置
+## 内置能力
 
-1. `App Shell`
-2. `Overlay Kit`
-3. `Page State Kit`
-4. `Settings + Support + Legal`
-5. `Preferences`
-6. `Subscription`
-7. `Network Baseline`
-8. `Rules / Templates / Skill Draft`
+1. App Shell
+2. Overlay Kit
+3. Page State Kit
+4. Settings / Support / Legal
+5. Preferences
+6. Subscription
+7. Network Baseline
+8. Privacy Manifest / App Store Compliance Baseline
+9. Rules / Templates / Plans
 
 ## 目录入口
 
 1. `StarterApp/`
-   这里是实际可运行的 Xcode 工程源码。
+   实际可运行的 SwiftUI 源码。
 2. `StarterApp.xcodeproj`
-   生成后的工程文件。
-3. `Rules/`
-   Starter 的开发规则入口。
-4. `Docs/`
-   架构说明、上手顺序、使用文档。
-5. `SkillSpec/`
-   Starter skill 的规格书和草案。
-6. `Templates/`
-   后续生成新 Feature / Page / Paywall 的模板入口。
-7. `Tools/generate_project.rb`
-   用于重新生成 `StarterApp.xcodeproj`。
-8. `Tools/reset_project.rb`
-   用于把基座一次性重置成新项目。
+   生成后的 Xcode 工程。
+3. `AGENTS.md`
+   根级开发规则入口。
+4. `Rules/`
+   专项开发规则，只放长期约束。
+5. `Docs/`
+   项目说明、PRD、参考资料和非规则类文档。
+6. `Plans/`
+   阶段计划、执行方案和决策记录。
+7. `Templates/`
+   Feature / Page / Paywall 起手模板。
+8. `Tools/generate_project.rb`
+   重新生成 Xcode 工程。
+9. `Tools/reset_project.rb`
+   将基座重置成新项目。
 
-## 先读什么
+## 推荐阅读顺序
 
-推荐进入顺序：
+1. 先读 `AGENTS.md`
+2. 再按任务读取命中的 `Rules/*.md`
+3. 需要产品说明、PRD 或参考材料时读取 `Docs/`
+4. 需要执行阶段计划时读取 `Plans/`
+5. 需要创建模块时读取 `Templates/`
 
-1. 先读 [Rules/AGENTS.md](/Users/mac/Documents/FYPIX/starter-ios-standard/Rules/AGENTS.md)
-2. 再读 [Docs/README.md](/Users/mac/Documents/FYPIX/starter-ios-standard/Docs/README.md)
-3. 再读 [Docs/DEVELOPMENT-ORDER.md](/Users/mac/Documents/FYPIX/starter-ios-standard/Docs/DEVELOPMENT-ORDER.md)
-4. 按任务补读 `Rules/` 下专项规则
+## 本地运行
 
-## 上手后的开发顺序
-
-如果你把这套 Starter 复制成一个新项目，建议按这个顺序开工：
-
-1. 先改配置，不先改页面
-2. 先让 Settings / Legal / Support / Subscription 跑通
-3. 再创建第一个业务 Feature
-4. 再接入网络和真实接口
-5. 最后才补缓存、下载、媒体等可选能力
-
-更详细的执行顺序见：
-
-[DEVELOPMENT-ORDER.md](/Users/mac/Documents/FYPIX/starter-ios-standard/Docs/DEVELOPMENT-ORDER.md)
-
-## 重新生成工程
+先重新生成工程：
 
 ```bash
 ruby Tools/generate_project.rb
@@ -69,9 +59,16 @@ ruby Tools/generate_project.rb
 StarterApp.xcodeproj
 ```
 
+首次验证建议确认：
+
+1. 工程能编译、能启动
+2. `Home / Settings` 两个 root tab 正常
+3. 外观、语言、订阅页入口、法务页入口能打开
+4. `PrivacyInfo.xcprivacy` 被打进 app target
+
 ## 重置成新项目
 
-复制这套基座后，先运行：
+复制这套基座后，运行：
 
 ```bash
 ruby Tools/reset_project.rb \
@@ -80,7 +77,7 @@ ruby Tools/reset_project.rb \
   --bundle-id "com.example.yourproduct"
 ```
 
-脚本会一次性处理：
+脚本会处理：
 
 1. 源码目录名
 2. `.xcodeproj` 文件名
@@ -92,6 +89,12 @@ ruby Tools/reset_project.rb \
 8. 本地持久化 key
 9. 本地化里的 App 名和订阅标题
 
+脚本完成后，必须删除或重写根目录 `README.md`：
+
+1. 如果新项目不需要保留 Starter 使用说明，删除本文件
+2. 如果新项目需要项目说明，将本文件改成真实 App 的 README
+3. 不要让 `Starter iOS Standard`、初始化命令和基座说明原样留在真实 App 仓库里
+
 如果产品名不是英文，建议额外传入 Swift 模块名：
 
 ```bash
@@ -102,12 +105,22 @@ ruby Tools/reset_project.rb \
   --module-name "FocusApp"
 ```
 
+## 新项目起手顺序
+
+1. 先改 `Config/`
+2. 先验证 `Settings / Support / Legal / Subscription`
+3. 再创建第一个真实业务 Feature
+4. 再接网络和真实接口
+5. 同步补隐私与上架合规声明
+6. 最后才补缓存、下载、媒体、广告等可选能力
+
 ## 当前不包含
 
 1. 媒体缓存
 2. Live Photo
 3. 重下载链路
 4. 广告
-5. 本机已安装 skill
+5. ATT / 广告追踪链路
+6. 第三方 SDK 合规模板
 
 这些能力保留为后续 Lite / Pro 演进位。

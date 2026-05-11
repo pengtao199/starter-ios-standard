@@ -307,7 +307,7 @@ rewrite_text_files(
   }
 )
 
-docs_text_files = Dir.glob(File.join(ROOT, "{README.md,Docs/**/*.md,Rules/**/*.md}"))
+docs_text_files = Dir.glob(File.join(ROOT, "{README.md,AGENTS.md,Docs/**/*.md,Plans/**/*.md,Rules/**/*.md,Templates/**/*.md}"))
 rewrite_text_files(
   docs_text_files,
   {
