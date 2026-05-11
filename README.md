@@ -31,6 +31,8 @@
    后续生成新 Feature / Page / Paywall 的模板入口。
 7. `Tools/generate_project.rb`
    用于重新生成 `StarterApp.xcodeproj`。
+8. `Tools/reset_project.rb`
+   用于把基座一次性重置成新项目。
 
 ## 先读什么
 
@@ -65,6 +67,39 @@ ruby Tools/generate_project.rb
 
 ```text
 StarterApp.xcodeproj
+```
+
+## 重置成新项目
+
+复制这套基座后，先运行：
+
+```bash
+ruby Tools/reset_project.rb \
+  --owner "Your Name" \
+  --product-name "Your Product" \
+  --bundle-id "com.example.yourproduct"
+```
+
+脚本会一次性处理：
+
+1. 源码目录名
+2. `.xcodeproj` 文件名
+3. Xcode target / scheme
+4. Bundle ID
+5. App 显示名
+6. `AppConfig`
+7. 订阅产品 ID
+8. 本地持久化 key
+9. 本地化里的 App 名和订阅标题
+
+如果产品名不是英文，建议额外传入 Swift 模块名：
+
+```bash
+ruby Tools/reset_project.rb \
+  --owner "Your Name" \
+  --product-name "番茄专注" \
+  --bundle-id "com.example.focus" \
+  --module-name "FocusApp"
 ```
 
 ## 当前不包含

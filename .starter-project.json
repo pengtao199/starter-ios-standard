@@ -1,0 +1,18 @@
+{
+  "owner": "",
+  "product_name": "Starter App",
+  "module_name": "StarterApp",
+  "app_struct_name": "StarterApp",
+  "project_name": "StarterApp",
+  "source_dir": "StarterApp",
+  "bundle_id": "co.example.starterapp",
+  "marketing_version": "1.0",
+  "current_project_version": "1",
+  "deployment_target": "18.0",
+  "network_base_url": "https://api.example.com",
+  "app_store_id": "0000000000",
+  "share_url": "https://example.com/app",
+  "support_email": "support@example.com",
+  "terms_url": "https://example.com/legal/terms",
+  "privacy_url": "https://example.com/legal/privacy"
+}
