@@ -327,13 +327,38 @@ rewrite_text_files(
 write_config(new_config)
 
 puts
-puts "Reset complete"
-puts "Owner: #{owner}"
-puts "Product: #{product_name}"
-puts "Bundle ID: #{bundle_id}"
-puts "Module: #{module_name}"
-puts ""
-puts "Next steps:"
-puts "1. Review config in .starter-project.json"
-puts "2. Update StarterApp.xcodeproj target name manually if needed (currently not automated)"
-puts "3. Run: open #{module_name}.xcodeproj"
+puts "✅ Reset complete!"
+puts
+puts "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+puts "Configuration:"
+puts "  Owner:     #{owner}"
+puts "  Product:   #{product_name}"
+puts "  Bundle ID: #{bundle_id}"
+puts "  Module:    #{module_name}"
+puts "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+puts
+puts "⚠️  Manual steps required:"
+puts
+puts "1. UPDATE ROOT README.md"
+puts "   The current README is Starter documentation."
+puts "   Replace it with your app's README or delete it."
+puts
+puts "2. UPDATE DOCUMENTATION IF NEEDED"
+puts "   Files in Docs/, Rules/, Plans/, Templates/ have been"
+puts "   automatically updated with new directory/module names,"
+puts "   but review them for accuracy."
+puts
+puts "3. VERIFY XCODE PROJECT"
+puts "   The target name may still show 'StarterApp' in Xcode."
+puts "   Update manually: Project → Target → General → Display Name"
+puts
+puts "4. CLEAN & BUILD"
+puts "   $ cd #{ROOT}"
+puts "   $ open #{module_name}.xcodeproj"
+puts "   $ Build (⌘B) to verify everything works"
+puts
+puts "5. DELETE THIS SCRIPT (optional)"
+puts "   Once you've confirmed the reset worked, you can delete"
+puts "   Tools/reset_project.rb since you won't need it again."
+puts
+puts "Happy coding! 🚀"
