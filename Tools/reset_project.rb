@@ -231,6 +231,53 @@ if old_module_name != module_name && Dir.exist?(old_project_path) && !Dir.exist?
   FileUtils.mv(old_project_path, project_path)
 end
 
+# Update project.pbxproj: replace bundle identifier, module and source dir references
+project_pbxproj = File.join(project_path, "project.pbxproj")
+if File.exist?(project_pbxproj)
+  rewrite_file(project_pbxproj) do |content|
+    result = content
+    # Replace exact PRODUCT_BUNDLE_IDENTIFIER assignments first
+    result = result.gsub(/PRODUCT_BUNDLE_IDENTIFIER\s*=\s*[^;]+;/) do |match|
+      match.gsub(/=[^;]+;/, "= #{bundle_id};")
+    end
+    # Replace any remaining occurrences of old identifiers
+    result = result.gsub(old_bundle_id, bundle_id)
+    result = result.gsub(old_module_name, module_name)
+    result = result.gsub(old_source_dir, source_dir)
+    result
+  end
+end
+
+  # Ensure top-level source directories are added as folder references in the Xcode project
+  begin
+    require 'xcodeproj'
+    if File.exist?(project_path)
+      project = Xcodeproj::Project.open(project_path)
+      main_group = project.root_object.main_group
+      dirs = ['App', 'Common', 'Config', 'Core', 'Features', 'Resources']
+      dirs.each do |d|
+        dir_full = File.join(new_source_path, d)
+        next unless Dir.exist?(dir_full)
+
+        # Skip if a reference already exists
+        existing = project.files.find { |f| f.path == File.join(source_dir, d) || f.path == "#{source_dir}/#{d}" }
+        unless existing
+          ref = project.new_file(dir_full)
+          # Mark as folder reference
+          ref.last_known_file_type = 'folder'
+          ref.name = d
+          ref.path = File.join(source_dir, d)
+          ref.source_tree = 'SOURCE_ROOT'
+          # Add to main group if not present
+          main_group.children << ref unless main_group.children.include?(ref)
+        end
+      end
+      project.save
+    end
+  rescue LoadError
+    warn "xcodeproj gem not installed; folder references not created. Install xcodeproj to enable this step."
+  end
+
 app_config_path = File.join(new_source_path, "Config", "AppConfig.swift")
 rewrite_file(app_config_path) do |content|
   content = replace_swift_string_assignment(content, "displayName", product_name)
