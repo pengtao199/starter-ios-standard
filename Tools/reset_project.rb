@@ -224,7 +224,12 @@ if old_app_file && old_app_file != new_app_file
   FileUtils.mv(old_app_file, new_app_file)
 end
 
-FileUtils.rm_rf(Dir.glob(File.join(ROOT, "*.xcodeproj")))
+project_path = File.join(ROOT, "#{module_name}.xcodeproj")
+old_project_path = File.join(ROOT, "#{old_module_name}.xcodeproj")
+
+if old_module_name != module_name && Dir.exist?(old_project_path) && !Dir.exist?(project_path)
+  FileUtils.mv(old_project_path, project_path)
+end
 
 app_config_path = File.join(new_source_path, "Config", "AppConfig.swift")
 rewrite_file(app_config_path) do |content|
@@ -321,13 +326,42 @@ rewrite_text_files(
 
 write_config(new_config)
 
-unless system("ruby", File.join(ROOT, "Tools", "generate_project.rb"))
-  abort "Failed to regenerate Xcode project"
-end
-
 puts
-puts "Reset complete"
-puts "Owner: #{owner}"
-puts "Product: #{product_name}"
-puts "Bundle ID: #{bundle_id}"
-puts "Project: #{module_name}.xcodeproj"
+puts "✅ Reset complete!"
+puts
+puts "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+puts "Configuration:"
+puts "  Owner:     #{owner}"
+puts "  Product:   #{product_name}"
+puts "  Bundle ID: #{bundle_id}"
+puts "  Module:    #{module_name}"
+puts "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+puts
+puts "⚠️  Manual steps required:"
+puts
+puts "1. UPDATE ROOT README.md"
+puts "   The current README is Starter documentation."
+puts "   Replace it with your app's README or delete it."
+puts
+puts "2. UPDATE DOCUMENTATION IF NEEDED"
+puts "   Files in Docs/, Rules/, Plans/, Templates/ have been"
+puts "   automatically updated with new directory/module names,"
+puts "   but review them for accuracy."
+puts
+puts "3. VERIFY XCODE PROJECT"
+puts "   The target name may still show 'StarterApp' in Xcode."
+puts "   Update manually: Project → Target → General → Display Name"
+puts
+puts "4. CLEAN & BUILD"
+puts "   $ cd #{ROOT}"
+puts "   $ open #{module_name}.xcodeproj"
+puts "   $ Build (⌘B) to verify everything works"
+puts
+
+# Clean up this script after successful completion
+reset_script_path = File.expand_path(__FILE__)
+FileUtils.rm_f(reset_script_path)
+puts "5. ✅ Cleanup"
+puts "   This reset script has been automatically deleted."
+puts
+puts "Happy coding! 🚀"

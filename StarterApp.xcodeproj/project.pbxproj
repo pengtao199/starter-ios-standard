@@ -86,12 +86,12 @@
 		1582C5CEE5D6AF23086A3C042DD26C54 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16CF89205A39C84952B9FE6A8B2FA710 /* AppConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		17516C33770F331F071F87C1C0B2EB29 /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
-		1C950884A81D5D01A42822D0B42596E4 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = "zh-Hans.lproj"; sourceTree = "<group>"; };
+		1C950884A81D5D01A42822D0B42596E4 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = "zh-Hans.lproj"; sourceTree = "<group>"; };
 		241165F6009D2A71BB483BDC0245F708 /* StoreKitSubscriptionRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoreKitSubscriptionRepository.swift; sourceTree = "<group>"; };
 		2CFD2A1FE8085A2D7760AB59ADD6A43F /* ClearSettingsCacheUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ClearSettingsCacheUseCase.swift; sourceTree = "<group>"; };
 		3603ADB2A508054AB382F4CBB43C7401 /* AppContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		36E20BB35D2F441D4893C694ABE16AEF /* SubscriptionViewModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModels.swift; sourceTree = "<group>"; };
-		424703B3D98BD159EB8F15A7C71C7FA5 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = en.lproj; sourceTree = "<group>"; };
+		424703B3D98BD159EB8F15A7C71C7FA5 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		43450E6A91DF67CE849BEF16D264AB74 /* PrepareAppReviewURLUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrepareAppReviewURLUseCase.swift; sourceTree = "<group>"; };
 		49E153E4C7D2A5C2CCEE214053C54C71 /* SubscriptionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		4AD9CDA59DA8961A6C896425126950EE /* LoadSubscriptionPlanItemsUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoadSubscriptionPlanItemsUseCase.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		97D407012D1489B0470744E29358F4F9 /* SettingsModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
 		99FB9C56F3B48DA54E1867FEBDF2711C /* HTTPMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		9FEC2221FB87E592CA99F23790A50C77 /* SettingsCacheRepositoryProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsCacheRepositoryProtocol.swift; sourceTree = "<group>"; };
-		A1D41056129EA4B817FE267CF059E45D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A1D41056129EA4B817FE267CF059E45D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		A2C8E07367B8D09BBDE4C018A2EEA560 /* LegalDocumentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LegalDocumentView.swift; sourceTree = "<group>"; };
 		A4422F29C7EF0F0113ADB6E501EF5A5C /* HTTPClientProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPClientProtocol.swift; sourceTree = "<group>"; };
 		A4E3849BF18FA41EFD3C78A3B81D3DB7 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
@@ -177,7 +177,6 @@
 				0EB889CC1BB712D8164ECB4DE639200E /* UpdateSettingsAppearanceUseCase.swift */,
 				DD41B44C0EA7FA4DF2F0BA01429B6317 /* UpdateSettingsLanguageUseCase.swift */,
 			);
-			name = Application;
 			path = Application;
 			sourceTree = "<group>";
 		};
@@ -186,7 +185,6 @@
 			children = (
 				FB8871C1C4BD1F062F768794B5E2C04F /* ResolveLegalDocumentUseCase.swift */,
 			);
-			name = Legal;
 			path = Legal;
 			sourceTree = "<group>";
 		};
@@ -196,7 +194,6 @@
 				F5AB802027BDE269E1AB2D9D8AC82703 /* Domain */,
 				CB600E36AAE24536C10248E897ECABC8 /* Presentation */,
 			);
-			name = Home;
 			path = Home;
 			sourceTree = "<group>";
 		};
@@ -207,7 +204,6 @@
 				D78384668D9AE6248F3075002855BFA4 /* Domain */,
 				58EB9FD7D3106357892041F33A46233E /* Presentation */,
 			);
-			name = Subscription;
 			path = Subscription;
 			sourceTree = "<group>";
 		};
@@ -221,7 +217,6 @@
 				A4E3849BF18FA41EFD3C78A3B81D3DB7 /* URLRequestBuilder.swift */,
 				AAF1AA5612A924CA48C3F8EED328A5B7 /* URLSessionHTTPClient.swift */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -232,7 +227,6 @@
 				69482D509E8831E61F07B7126C66CEB4 /* Platform */,
 				AE69623696C38E2EC20375B37273F06A /* UI */,
 			);
-			name = Common;
 			path = Common;
 			sourceTree = "<group>";
 		};
@@ -243,7 +237,6 @@
 				6E53C6B0D82B2C8358A1C1A26C02DE05 /* Persistence */,
 				F86C8E8A6884189DD0CEB04E484959DF /* Support */,
 			);
-			name = Infrastructure;
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
@@ -252,7 +245,6 @@
 			children = (
 				D60D75C7C707D2ACD77BD54AB12186D5 /* NoopSettingsCacheRepository.swift */,
 			);
-			name = Infrastructure;
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
@@ -263,7 +255,6 @@
 				B380AD4255CA6149BEFA5F8036804AF1 /* RefreshSubscriptionStatusUseCase.swift */,
 				F57961028A527FBA7A51D931934744F5 /* RestoreSubscriptionPurchasesUseCase.swift */,
 			);
-			name = Subscription;
 			path = Subscription;
 			sourceTree = "<group>";
 		};
@@ -272,7 +263,6 @@
 			children = (
 				13D6FC45CE24004B911ECA3209FF5A0F /* LayoutToken.swift */,
 			);
-			name = Layout;
 			path = Layout;
 			sourceTree = "<group>";
 		};
@@ -282,7 +272,6 @@
 				C91EF8CD4B63701379CC52D66A264E33 /* HUDSession.swift */,
 				ACA2B72F504477C04A98160E192B1357 /* OverlayStore.swift */,
 			);
-			name = Overlay;
 			path = Overlay;
 			sourceTree = "<group>";
 		};
@@ -294,7 +283,6 @@
 				DDA56F1DB55221C2BFE540A44502E4E3 /* SubscriptionConfig.swift */,
 				D1ACF9276F333FC25D990FBD10A84F3F /* SupportConfig.swift */,
 			);
-			name = Config;
 			path = Config;
 			sourceTree = "<group>";
 		};
@@ -312,7 +300,6 @@
 				8ECE8B849AC5EDB0695E712377CFDC4C /* OverlayHUDCardView.swift */,
 				FC82A62C056B47A227A23803A1ACC2B7 /* OverlayPresenterView.swift */,
 			);
-			name = Overlay;
 			path = Overlay;
 			sourceTree = "<group>";
 		};
@@ -322,7 +309,6 @@
 				63041AA89AB845377F0FD0EF87BAC156 /* SubscriptionStore.swift */,
 				49E153E4C7D2A5C2CCEE214053C54C71 /* SubscriptionView.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -332,7 +318,6 @@
 				A812A4AF4D468F0851916BD23070AA2A /* PagePrimaryState.swift */,
 				61E2F807CD9AA5F6E7E32DCFB3F368BC /* PageSecondaryState.swift */,
 			);
-			name = State;
 			path = State;
 			sourceTree = "<group>";
 		};
@@ -348,7 +333,6 @@
 				A1D41056129EA4B817FE267CF059E45D /* PrivacyInfo.xcprivacy */,
 				1582C5CEE5D6AF23086A3C042DD26C54 /* Info.plist */,
 			);
-			name = StarterApp;
 			path = StarterApp;
 			sourceTree = "<group>";
 		};
@@ -357,7 +341,6 @@
 			children = (
 				511A7FA01A8DBE9E63432CF0CC35573F /* Overlay */,
 			);
-			name = Platform;
 			path = Platform;
 			sourceTree = "<group>";
 		};
@@ -367,7 +350,6 @@
 				CF85B1489CA589B552109045685435A4 /* AppPreferencesRepository.swift */,
 				599134273CD1D63003452D8E6F0C15EF /* SubscriptionStateRepository.swift */,
 			);
-			name = Persistence;
 			path = Persistence;
 			sourceTree = "<group>";
 		};
@@ -376,7 +358,6 @@
 			children = (
 				4D66636279915DC24FB4F58F6E4CEE79 /* View+OverlaySurface.swift */,
 			);
-			name = Effects;
 			path = Effects;
 			sourceTree = "<group>";
 		};
@@ -387,7 +368,6 @@
 				EE41A57D3CE046D0CADC114E928CAEFF /* LoadSubscriptionViewStateUseCase.swift */,
 				C9E669C032EBBB4209CCCEB8E7FB182A /* PurchaseSubscriptionPlanUseCase.swift */,
 			);
-			name = Application;
 			path = Application;
 			sourceTree = "<group>";
 		};
@@ -397,7 +377,6 @@
 				9FEC2221FB87E592CA99F23790A50C77 /* SettingsCacheRepositoryProtocol.swift */,
 				97D407012D1489B0470744E29358F4F9 /* SettingsModels.swift */,
 			);
-			name = Domain;
 			path = Domain;
 			sourceTree = "<group>";
 		};
@@ -407,7 +386,6 @@
 				61B11946245745ECBCBB961127AD404D /* State */,
 				F4744C69440BF234D3031BAC6CD4042A /* Types */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -418,7 +396,6 @@
 				F05C54F6DD2BFB6D7B233FE82670D072 /* Preferences */,
 				3DBF8906D67735B4036D86222F32EB79 /* Subscription */,
 			);
-			name = Application;
 			path = Application;
 			sourceTree = "<group>";
 		};
@@ -430,7 +407,6 @@
 				22B56C6B02D7EED248C3DAA3467228BD /* Infrastructure */,
 				C99099FF6F489D9A246216B7F5CB611F /* Integrations */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -439,7 +415,6 @@
 			children = (
 				241165F6009D2A71BB483BDC0245F708 /* StoreKitSubscriptionRepository.swift */,
 			);
-			name = Subscription;
 			path = Subscription;
 			sourceTree = "<group>";
 		};
@@ -448,7 +423,6 @@
 			children = (
 				A4E5F441D07D301E4529F4631DBBC36D /* AppPreferencesModels.swift */,
 			);
-			name = Preferences;
 			path = Preferences;
 			sourceTree = "<group>";
 		};
@@ -460,7 +434,6 @@
 				B1CA663957B79193CBBC5D2301558BD4 /* AppRootView.swift */,
 				D05C86C1985A834253C46847CD451849 /* StarterApp.swift */,
 			);
-			name = App;
 			path = App;
 			sourceTree = "<group>";
 		};
@@ -479,7 +452,6 @@
 				D142BAB0377DDF7E97850DD31F490D1B /* SettingsStore.swift */,
 				DB0A89BBD85707B8F9CFF1548BD17A42 /* SettingsView.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -491,7 +463,6 @@
 				55B3381610AF998E2E375D9CF26FFC43 /* Overlay */,
 				CC665F17A278D054DDE12BD4827C0355 /* State */,
 			);
-			name = UI;
 			path = UI;
 			sourceTree = "<group>";
 		};
@@ -503,7 +474,6 @@
 				255C9618D19D823241D7FD52DF34940F /* Infrastructure */,
 				A333EA6DC03A63371D0D84D5543FC8D9 /* Presentation */,
 			);
-			name = Settings;
 			path = Settings;
 			sourceTree = "<group>";
 		};
@@ -512,7 +482,6 @@
 			children = (
 				954403BA3BD40E4D872F522FA5ECDA4D /* Subscription */,
 			);
-			name = Integrations;
 			path = Integrations;
 			sourceTree = "<group>";
 		};
@@ -522,7 +491,6 @@
 				042A6DDB8D345880F6B5FE53FDC9D8EA /* HomeStore.swift */,
 				E1A39D1D41F3BD8976A7115BB49EE920 /* HomeView.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -531,7 +499,6 @@
 			children = (
 				FA2B2FE1356D74EBF726DB99B2C0B2B1 /* PageStateContainer.swift */,
 			);
-			name = State;
 			path = State;
 			sourceTree = "<group>";
 		};
@@ -540,7 +507,6 @@
 			children = (
 				51CD551CF54DD030C93DD0C2AEBDE30C /* SubscriptionModels.swift */,
 			);
-			name = Subscription;
 			path = Subscription;
 			sourceTree = "<group>";
 		};
@@ -553,7 +519,6 @@
 				D30E4FC30A4B85BE77A9A16DC870DA2A /* Subscription */,
 				FE0C8A28E43BE077A526EA28AFF090B5 /* Support */,
 			);
-			name = Domain;
 			path = Domain;
 			sourceTree = "<group>";
 		};
@@ -562,7 +527,6 @@
 			children = (
 				36E20BB35D2F441D4893C694ABE16AEF /* SubscriptionViewModels.swift */,
 			);
-			name = Domain;
 			path = Domain;
 			sourceTree = "<group>";
 		};
@@ -571,7 +535,6 @@
 			children = (
 				E5D0A2E2E4CA30549926DCE9732354F0 /* Presentation */,
 			);
-			name = LegalDocument;
 			path = LegalDocument;
 			sourceTree = "<group>";
 		};
@@ -583,7 +546,6 @@
 				C2FFC44FFA43C95FA8154DDCDA598E37 /* Settings */,
 				1A59FA47C7792E23303DA49FE3C0D3D3 /* Subscription */,
 			);
-			name = Features;
 			path = Features;
 			sourceTree = "<group>";
 		};
@@ -594,7 +556,6 @@
 				A2C8E07367B8D09BBDE4C018A2EEA560 /* LegalDocumentView.swift */,
 				5B8CBF77FD36445F1204FED032F72787 /* LegalDocumentWebView.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -603,7 +564,6 @@
 			children = (
 				A4422F29C7EF0F0113ADB6E501EF5A5C /* HTTPClientProtocol.swift */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -612,7 +572,6 @@
 			children = (
 				F30D8E37C12649A3EE22E4A1D3BCA59E /* Localization */,
 			);
-			name = Resources;
 			path = Resources;
 			sourceTree = "<group>";
 		};
@@ -621,7 +580,6 @@
 			children = (
 				F61EF398A6C5F817F50238479D0D773C /* LegalDocumentModels.swift */,
 			);
-			name = Legal;
 			path = Legal;
 			sourceTree = "<group>";
 		};
@@ -632,7 +590,6 @@
 				96F1018B8150067C83236CCB741E51D1 /* UpdateAppAppearanceUseCase.swift */,
 				E01920131C2D0513C20DF67E0D0D1AFE /* UpdateAppLanguageUseCase.swift */,
 			);
-			name = Preferences;
 			path = Preferences;
 			sourceTree = "<group>";
 		};
@@ -642,7 +599,6 @@
 				424703B3D98BD159EB8F15A7C71C7FA5 /* en.lproj */,
 				1C950884A81D5D01A42822D0B42596E4 /* zh-Hans.lproj */,
 			);
-			name = Localization;
 			path = Localization;
 			sourceTree = "<group>";
 		};
@@ -651,7 +607,6 @@
 			children = (
 				971328A259ED815C5C77AD89E0B2B399 /* OverlayPresenterModel.swift */,
 			);
-			name = Types;
 			path = Types;
 			sourceTree = "<group>";
 		};
@@ -660,7 +615,6 @@
 			children = (
 				5D3EE49DF4FEB36941DE79BCAE49794C /* HomeDemoModels.swift */,
 			);
-			name = Domain;
 			path = Domain;
 			sourceTree = "<group>";
 		};
@@ -669,7 +623,6 @@
 			children = (
 				589CABA3E8DFEA83F084365E86FBE57D /* SupportActionRepository.swift */,
 			);
-			name = Support;
 			path = Support;
 			sourceTree = "<group>";
 		};
@@ -678,7 +631,6 @@
 			children = (
 				BA148A6B13E3F6E8921EC0122DA59BD7 /* SupportActionRepositoryProtocol.swift */,
 			);
-			name = Support;
 			path = Support;
 			sourceTree = "<group>";
 		};
@@ -709,6 +661,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					906A7ED0E4A05A4C5C0B467D6911DF26 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 9527CAF3BB289F95E1D79E67DBD1D5A9 /* Build configuration list for PBXProject "StarterApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -719,8 +676,6 @@
 				"zh-Hans",
 			);
 			mainGroup = A0069F820DB0D8E06B7B06A55111E20B;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -930,8 +885,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -953,9 +907,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.example.starterapp;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -976,9 +933,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.example.starterapp;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

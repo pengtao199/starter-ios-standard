@@ -47,24 +47,33 @@
 
 ## 本地运行
 
-先重新生成工程：
+直接打开工程：
 
 ```bash
-ruby Tools/generate_project.rb
+open StarterApp.xcodeproj
 ```
 
-然后打开：
-
-```text
-StarterApp.xcodeproj
-```
-
-首次验证建议确认：
+然后验证：
 
 1. 工程能编译、能启动
 2. `Home / Settings` 两个 root tab 正常
 3. 外观、语言、订阅页入口、法务页入口能打开
 4. `PrivacyInfo.xcprivacy` 被打进 app target
+
+## 新增文件
+
+新增 `.swift` 文件后，在 Xcode 中：
+1. 将文件拖到工程树（或用 File → Add Files）
+2. 确保勾选了 app target
+3. 文件会自动加入 build phase
+
+## 重新生成工程
+
+如果需要完全重置工程结构（不推荐），运行：
+
+```bash
+ruby Tools/generate_project.rb
+```
 
 ## 重置成新项目
 
@@ -77,23 +86,37 @@ ruby Tools/reset_project.rb \
   --bundle-id "com.example.yourproduct"
 ```
 
-脚本会处理：
+脚本会自动处理：
 
-1. 源码目录名
-2. `.xcodeproj` 文件名
-3. Xcode target / scheme
-4. Bundle ID
-5. App 显示名
-6. `AppConfig`
-7. 订阅产品 ID
-8. 本地持久化 key
-9. 本地化里的 App 名和订阅标题
+| 项 | 自动处理 |
+|----|---------|
+| 源码目录名 | `StarterApp/` → `YourModule/` |
+| `.xcodeproj` 文件名 | `StarterApp.xcodeproj` → `YourModule.xcodeproj` |
+| Bundle ID | `co.example.starterapp` → `com.example.yourproduct` |
+| App 显示名 | `Starter App` → `Your Product` |
+| `AppConfig.swift` | Bundle ID、版本、API URL 等 |
+| 订阅产品 ID | `*.pro.yearly` / `*.pro.monthly` |
+| 本地化字符串 | App 名、标题等所有地方 |
+| `Info.plist` | CFBundleDisplayName、CFBundleName |
+| 文档中的路径 | `Docs/`、`Rules/`、`Plans/`、`Templates/` 内的路径引用 |
 
-脚本完成后，必须删除或重写根目录 `README.md`：
+脚本完成后，**还需要手动处理**：
 
-1. 如果新项目不需要保留 Starter 使用说明，删除本文件
-2. 如果新项目需要项目说明，将本文件改成真实 App 的 README
-3. 不要让 `Starter iOS Standard`、初始化命令和基座说明原样留在真实 App 仓库里
+1. **更新 `README.md`（必须）**
+   - 当前 README 是 Starter 使用说明
+   - 删除本文件或改成你的 App README
+   - 不要让 Starter 说明留在真实项目里
+
+2. **检查 Xcode 工程**
+   - 打开 `YourModule.xcodeproj`
+   - Project → Targets → 检查 Display Name（如果还是 StarterApp，手动改过来）
+   - Build & Run 验证工作
+
+3. **检查文档准确性**
+   - `Docs/`、`Rules/`、`Plans/` 中的路径名已自动更新
+   - 但检查是否有其他硬编码的示例需要调整
+
+（reset_project.rb 脚本会在运行完后自动删除）
 
 如果产品名不是英文，建议额外传入 Swift 模块名：
 
