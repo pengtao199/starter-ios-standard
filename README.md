@@ -47,24 +47,33 @@
 
 ## 本地运行
 
-先重新生成工程：
+直接打开工程：
 
 ```bash
-ruby Tools/generate_project.rb
+open StarterApp.xcodeproj
 ```
 
-然后打开：
-
-```text
-StarterApp.xcodeproj
-```
-
-首次验证建议确认：
+然后验证：
 
 1. 工程能编译、能启动
 2. `Home / Settings` 两个 root tab 正常
 3. 外观、语言、订阅页入口、法务页入口能打开
 4. `PrivacyInfo.xcprivacy` 被打进 app target
+
+## 新增文件
+
+新增 `.swift` 文件后，在 Xcode 中：
+1. 将文件拖到工程树（或用 File → Add Files）
+2. 确保勾选了 app target
+3. 文件会自动加入 build phase
+
+## 重新生成工程
+
+如果需要完全重置工程结构（不推荐），运行：
+
+```bash
+ruby Tools/generate_project.rb
+```
 
 ## 重置成新项目
 
