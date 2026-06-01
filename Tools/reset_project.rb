@@ -3,7 +3,6 @@
 require "fileutils"
 require "json"
 require "optparse"
-require "xcodeproj"
 
 ROOT = File.expand_path("..", __dir__)
 CONFIG_PATH = File.join(ROOT, ".starter-project.json")
@@ -232,8 +231,6 @@ if old_module_name != module_name && Dir.exist?(old_project_path) && !Dir.exist?
   FileUtils.mv(old_project_path, project_path)
 end
 
-abort "Missing Xcode project: #{project_path}" unless Dir.exist?(project_path)
-
 app_config_path = File.join(new_source_path, "Config", "AppConfig.swift")
 rewrite_file(app_config_path) do |content|
   content = replace_swift_string_assignment(content, "displayName", product_name)
@@ -329,38 +326,14 @@ rewrite_text_files(
 
 write_config(new_config)
 
-# Update Xcode project with new configuration
-project = Xcodeproj::Project.open(project_path)
-target = project.targets.first
-
-unless target
-  abort "No targets found in #{project_path}"
-end
-
-# Update target name
-if target.name != module_name
-  target.name = module_name
-  target.display_name = module_name
-end
-
-# Update build configurations
-target.build_configurations.each do |config|
-  config.build_settings["PRODUCT_BUNDLE_IDENTIFIER"] = bundle_id
-  config.build_settings["PRODUCT_MODULE_NAME"] = module_name
-  config.build_settings["MARKETING_VERSION"] = new_config.fetch("marketing_version")
-  config.build_settings["CURRENT_PROJECT_VERSION"] = new_config.fetch("current_project_version")
-end
-
-# Update display name in Info.plist settings
-target.build_configurations.each do |config|
-  config.build_settings["INFOPLIST_FILE"] = "#{source_dir}/Info.plist"
-end
-
-project.save
-
 puts
 puts "Reset complete"
 puts "Owner: #{owner}"
 puts "Product: #{product_name}"
 puts "Bundle ID: #{bundle_id}"
-puts "Project: #{module_name}.xcodeproj"
+puts "Module: #{module_name}"
+puts ""
+puts "Next steps:"
+puts "1. Review config in .starter-project.json"
+puts "2. Update StarterApp.xcodeproj target name manually if needed (currently not automated)"
+puts "3. Run: open #{module_name}.xcodeproj"
