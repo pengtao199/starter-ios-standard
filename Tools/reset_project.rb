@@ -357,8 +357,11 @@ puts "   $ cd #{ROOT}"
 puts "   $ open #{module_name}.xcodeproj"
 puts "   $ Build (⌘B) to verify everything works"
 puts
-puts "5. DELETE THIS SCRIPT (optional)"
-puts "   Once you've confirmed the reset worked, you can delete"
-puts "   Tools/reset_project.rb since you won't need it again."
+
+# Clean up this script after successful completion
+reset_script_path = File.expand_path(__FILE__)
+FileUtils.rm_f(reset_script_path)
+puts "5. ✅ Cleanup"
+puts "   This reset script has been automatically deleted."
 puts
 puts "Happy coding! 🚀"

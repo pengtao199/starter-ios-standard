@@ -116,9 +116,7 @@ ruby Tools/reset_project.rb \
    - `Docs/`、`Rules/`、`Plans/` 中的路径名已自动更新
    - 但检查是否有其他硬编码的示例需要调整
 
-4. **删除 reset 脚本（可选）**
-   - `Tools/reset_project.rb` 这是一次性脚本
-   - 用完后可以删除或保留作为参考
+（reset_project.rb 脚本会在运行完后自动删除）
 
 如果产品名不是英文，建议额外传入 Swift 模块名：
 
